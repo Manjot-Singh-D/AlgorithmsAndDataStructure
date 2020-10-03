@@ -7,16 +7,21 @@ void bubbleSort(int array[], int size) {
      * one for walking through the array
      * and the other for comparison 
      */
-
+    /*isSwapped bool is used to restrict
+     *the loop when array becomes sorted. 
+     */
+    bool isSwapped=true;
     for(int step=0;step-size-1;step++){
-        for(int i=0;i<size-step-1;i++) {
-
-            if(array[i] > array[i+1]) {
-
-                // swap if greater is at the rear position
-                int temp = array[i];
-                array[i] = array[i+1];
-                array[i+1] = temp;
+        if(isSwapped){
+            isSwapped=false;
+            for(int i=0;i<size-step-1;i++) {
+                if(array[i] > array[i+1]) {
+                    // swap if greater is at the rear position
+                    int temp = array[i];
+                    array[i] = array[i+1];
+                    array[i+1] = temp;
+                    isSwapped=true;
+                }
             }
         }
     }
